@@ -1,6 +1,8 @@
 # DART Commute Analysis
 
-## Project Description
+## Assignment Proposal
+
+### Project Description
 
 This project records and analyses my personal DART commute data.
 
@@ -55,7 +57,62 @@ The dataset is stored in:
 
 `data/commute.csv`
 
-The CSV file will be updated regularly as new journeys are recorded.
+The CSV file will continue to be updated as new journeys are recorded.
+
+---
+
+## Current Progress
+
+The following parts of the project have currently been implemented:
+
+- A manually collected CSV dataset has been created.
+- Python reads the commute data from the CSV file.
+- Numeric values such as delay and travel time are converted to integer values.
+- The data is inserted into an SQLite database.
+- SQL queries are used to calculate values such as average delay and average delay by weather.
+- The SQLite database is loaded into a pandas DataFrame.
+- pandas is used to calculate summary statistics.
+- matplotlib is used to create data visualisations.
+- A terminal menu has been created so that the user can select different charts.
+
+Data collection and development will continue after the proposal submission.
+
+---
+
+## Current Visualisations
+
+### DART Delay by Date
+
+This line chart shows how the departure delay changes between recorded journeys.
+
+![DART Delay by Date](images/delay_by_date.png)
+
+### Average DART Delay by Weather
+
+This bar chart compares the average delay under different weather conditions.
+
+![Average DART Delay by Weather](images/delay_by_weather.png)
+
+### Delay vs Travel Time
+
+This scatter plot is used to investigate whether a larger departure delay is associated with a longer total travel time.
+
+![Delay vs Travel Time](images/delay_vs_travel_time.png)
+
+---
+
+## How the Current Program Works
+
+The program currently follows these main steps:
+
+1. Read the manually collected data from `commute.csv`.
+2. Convert numeric fields into integer values.
+3. Create and connect to an SQLite database.
+4. Insert the CSV data into the database.
+5. Run SQL queries on the commute data.
+6. Load the database table into pandas.
+7. Perform basic statistical analysis.
+8. Allow the user to select visualisations through a terminal menu.
 
 ---
 
@@ -67,5 +124,11 @@ dart_commute_analysis/
 ├── README.md
 ├── main.py
 │
-└── data/
-    └── commute.csv
+├── data/
+│   ├── commute.csv
+│   └── commute.db
+│
+└── images/
+    ├── delay_by_date.png
+    ├── delay_by_weather.png
+    └── delay_vs_travel_time.png
