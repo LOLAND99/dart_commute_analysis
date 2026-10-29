@@ -120,10 +120,10 @@ print(df["delay_minutes"].mean())
 
 # Calculate the average delay for each weather condition using pandas
 print(df.groupby("weather")["delay_minutes"].mean())
-# the frist 2 calculation is for check if the pandas gets samen results as SQL
+# the frist 2 calculation is for check if the pandas gets same results as SQL
 
 # Find the maximun delay minutes
-print("Maxinmum delay:", df["delay_minutes"].max())
+print("Maximum delay:", df["delay_minutes"].max())
 
 #Find the longest travelling time 
 print("Longest travel time is:" , df["travel_time"].max())
@@ -136,3 +136,127 @@ print(df["got_seat"].value_counts())
 
 # Close the database connection
 conn.close()
+
+
+# Import matplotlib module
+import matplotlib.pyplot as plt
+
+
+# Test code for the charts
+# The final versions are used in the functions below.
+#----------------------------------------------------
+
+# # create line chart to show dart delay by date
+# plt.plot(df["date"] , df["delay_minutes"],marker="o")
+
+# # Add labels and title
+# plt.xlabel("Date")
+# plt.ylabel("Delay (minutes)")
+# plt.title("DART Delay by Date")
+
+# # Rotate
+# plt.xticks(rotation=45)
+
+# # Automatic layout and formatting
+# plt.tight_layout()
+# plt.show()
+
+
+# # Calculate average delay for each weather condition 
+# # connected to df.groupby("weather")["delay_minutes"].mean() at line 122
+# weather_avg = df.groupby("weather")["delay_minutes"].mean()
+
+# # Create a bar chart
+# weather_avg.plot(kind="bar")
+
+# plt.xlabel("Weather")
+# plt.ylabel("Average delay (minutes)")
+# plt.title("Average DART Delay by Weather")
+
+# plt.tight_layout()
+# plt.show()
+
+
+# # Create a scatter plot toshow the relationship between delay and travel time
+# plt.scatter(df["delay_minutes"], df["travel_time"])
+
+# plt.xlabel("Delay (minutes)")
+# plt.ylabel("Travel time (minutes)")
+# plt.title("Delay vs Travel Time")
+
+# plt.tight_layout()
+# plt.show()
+
+#----------------------------------------------------
+
+# Function to show delay by date
+def show_delay_chart():
+
+    plt.plot(df["date"], df["delay_minutes"], marker="o")
+
+    plt.xlabel("Date")
+    plt.ylabel("Delay (minutes)")
+    plt.title("DART Delay by Date")
+
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    plt.show()
+
+
+# Function to show average delay by weather
+def show_weather_chart():
+
+    weather_avg = df.groupby("weather")["delay_minutes"].mean()
+
+    weather_avg.plot(kind="bar")
+
+    plt.xlabel("Weather")
+    plt.ylabel("Average delay (minutes)")
+    plt.title("Average DART Delay by Weather")
+
+    plt.tight_layout()
+
+    plt.show()
+
+
+# Function to show the relationship between delay and travel time
+def show_scatter_chart():
+
+    plt.scatter(df["delay_minutes"], df["travel_time"])
+
+    plt.xlabel("Delay (minutes)")
+    plt.ylabel("Travel time (minutes)")
+    plt.title("Delay vs Travel Time")
+
+    plt.tight_layout()
+
+    plt.show()
+
+# Main Menu
+while True:
+
+    print()
+    print(" Dart Commute Analysis ")
+    print("1. Show delay by date")
+    print("2. Show average delay by weather")
+    print("3. Show delay vs travel time")
+    print("4. Quit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        show_delay_chart()
+
+    elif choice == "2":
+        show_weather_chart()
+
+    elif choice == "3":
+        show_scatter_chart()
+
+    elif choice == "4":
+        print("Program closed.")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
