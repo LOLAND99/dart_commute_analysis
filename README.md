@@ -110,7 +110,7 @@ The program currently follows these main steps:
 3. Create and connect to an SQLite database.
 4. Insert the CSV data into the database.
 5. Run SQL queries on the commute data.
-6. Load the database table into pandas.
+6. Load the database table into a pandas DataFrame.
 7. Perform basic statistical analysis.
 8. Allow the user to select visualisations through a terminal menu.
 
@@ -132,3 +132,20 @@ dart_commute_analysis/
     ├── delay_by_date.png
     ├── delay_by_weather.png
     └── delay_vs_travel_time.png
+```
+
+---
+
+## Proposal Submission Boundary
+
+The sections above represent the state of the project at the time of the assignment proposal submission.
+
+Further development for the final assignment will continue below this point.
+
+---
+
+# Final Assignment Development
+
+This section is reserved for the continued development of the full assignment after the proposal submission.
+
+Additional analysis, visualisations, findings, screenshots, interface improvements and reflections will be added here as the project develops.
